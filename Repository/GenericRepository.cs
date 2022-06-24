@@ -58,10 +58,5 @@ namespace HotelListing.API.Repository
             _context.Update(entity);
             await _context.SaveChangesAsync();
         }
-
-        Task<T> IGenericRepository<T>.GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
