@@ -30,7 +30,7 @@ namespace HotelListing.API.Repository
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
             var validPassword = await _userManager.CheckPasswordAsync(user, loginDto.Password);
 
-            if (user == null || validPassword)
+            if (user == null || validPassword == null)
             {
                 return null;
             }
