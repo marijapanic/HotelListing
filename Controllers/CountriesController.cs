@@ -11,6 +11,7 @@ using AutoMapper;
 using HotelListing.API.Repository;
 using HotelListing.API.Contracts;
 using Microsoft.AspNetCore.Authorization;
+using HotelListing.API.Exceptions;
 
 namespace HotelListing.API.Controllers
 {
@@ -19,12 +20,14 @@ namespace HotelListing.API.Controllers
     public class CountriesController : ControllerBase
     {
         private readonly ICountriesRepository _countriesRepository;
+        private readonly ILogger<CountriesController> _logger;
         private readonly IMapper _mapper;
 
-        public CountriesController(IMapper mapper, ICountriesRepository countryRepository)
+        public CountriesController(IMapper mapper, ICountriesRepository countryRepository, ILogger<CountriesController> logger)
         {
             this._mapper = mapper;
             this._countriesRepository = countryRepository;
+            this._logger = logger;
         }
 
         // GET: api/Countries
@@ -45,7 +48,7 @@ namespace HotelListing.API.Controllers
 
             if (country == null)
             {
-                return NotFound();
+                throw new NotFoundException(nameof(GetCountry), id);
             }
 
             var countryDto = _mapper.Map<CountryDto>(country);
@@ -68,7 +71,7 @@ namespace HotelListing.API.Controllers
             var country = await _countriesRepository.GetAsync(id);
             if (country == null)
             {
-                return NotFound();
+                throw new NotFoundException(nameof(PutCountry), id);
             }
 
             _mapper.Map(updateCountry, country);
@@ -119,7 +122,7 @@ namespace HotelListing.API.Controllers
             var country = await _countriesRepository.GetAsync(id);
             if (country == null)
             {
-                return NotFound();
+                throw new NotFoundException(nameof(DeleteCountry), id);
             }
 
             await _countriesRepository.DeleteAsync(id);
