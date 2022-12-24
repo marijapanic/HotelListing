@@ -2,7 +2,7 @@
 
 namespace HotelListing.API.Data
 {
-    public class ApiUser: IdentityUser
+    public class ApiUser : IdentityUser
     {
         public string FirstName { get; set; }
 

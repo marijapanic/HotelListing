@@ -42,7 +42,7 @@ namespace HotelListing.API.Middleware
             switch (ex)
             {
                 case NotFoundException notFoundException:
-                    statusCode= HttpStatusCode.NotFound;
+                    statusCode = HttpStatusCode.NotFound;
                     errorDetails.ErrorType = "Not found";
                     break;
                 default:
@@ -57,7 +57,7 @@ namespace HotelListing.API.Middleware
     }
 
     public class ErrorDetails
-    { 
+    {
         public string ErrorType { get; set; }
         public string ErrorMessage { get; set; }
 

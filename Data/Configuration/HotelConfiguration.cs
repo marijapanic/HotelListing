@@ -7,32 +7,32 @@ namespace HotelListing.API.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<Hotel> builder)
         {
-           builder.HasData(
-                new Hotel
-                {
-                    Id = 1,
-                    Name = "Sandals Resort and SPA",
-                    Address = "Negril",
-                    CountryId = 1,
-                    Rating = 4.5
-                },
-                new Hotel
-                {
-                    Id = 2,
-                    Name = "Comfort Suitec",
-                    Address = "George town",
-                    CountryId = 3,
-                    Rating = 4.3
-                },
-                new Hotel
-                {
-                    Id = 3,
-                    Name = "Grand Palldium",
-                    Address = "Nassua",
-                    CountryId = 2,
-                    Rating = 4
-                }
-                );
+            builder.HasData(
+                 new Hotel
+                 {
+                     Id = 1,
+                     Name = "Sandals Resort and SPA",
+                     Address = "Negril",
+                     CountryId = 1,
+                     Rating = 4.5
+                 },
+                 new Hotel
+                 {
+                     Id = 2,
+                     Name = "Comfort Suitec",
+                     Address = "George town",
+                     CountryId = 3,
+                     Rating = 4.3
+                 },
+                 new Hotel
+                 {
+                     Id = 3,
+                     Name = "Grand Palldium",
+                     Address = "Nassua",
+                     CountryId = 2,
+                     Rating = 4
+                 }
+                 );
         }
     }
 }

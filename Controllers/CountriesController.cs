@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using HotelListing.API.Contracts;
+using HotelListing.API.Data;
+using HotelListing.API.Exceptions;
+using HotelListing.API.Models.Country;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using HotelListing.API.Data;
-using HotelListing.API.Models.Country;
-using AutoMapper;
-using HotelListing.API.Repository;
-using HotelListing.API.Contracts;
-using Microsoft.AspNetCore.Authorization;
-using HotelListing.API.Exceptions;
 
 namespace HotelListing.API.Controllers
 {
@@ -36,7 +30,7 @@ namespace HotelListing.API.Controllers
         {
             var countries = await _countriesRepository.GetAllAsync();
             var records = _mapper.Map<List<GetCountryDto>>(countries);
-            
+
             return Ok(records);
         }
 
