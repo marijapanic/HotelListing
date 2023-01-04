@@ -1,4 +1,4 @@
-﻿namespace HotelListing.API.Models.Hotel
+﻿namespace HotelListing.API.Core.Models.Hotel
 {
     public class CreateHotelDto : BaseHotelDto
     {

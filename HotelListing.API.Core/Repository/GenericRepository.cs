@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using HotelListing.API.Contracts;
+using HotelListing.API.Core.Contracts;
+using HotelListing.API.Core.Models;
 using HotelListing.API.Data;
-using HotelListing.API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelListing.API.Repository
+namespace HotelListing.API.Core.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using HotelListing.API.Contracts;
+using HotelListing.API.Core.Contracts;
+using HotelListing.API.Core.Models.Users;
 using HotelListing.API.Data;
-using HotelListing.API.Models.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
-namespace HotelListing.API.Repository
+namespace HotelListing.API.Core.Repository
 {
     public class AuthManager : IAuthManager
     {
