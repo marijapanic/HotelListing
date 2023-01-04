@@ -16,7 +16,7 @@
             {
                 _pageSize = value;
             }
-        
+
         }
     }
 }
