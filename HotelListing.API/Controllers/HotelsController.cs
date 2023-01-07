@@ -3,6 +3,7 @@ using HotelListing.API.Core.Contracts;
 using HotelListing.API.Core.Models;
 using HotelListing.API.Core.Models.Hotel;
 using HotelListing.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ namespace HotelListing.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class HotelsController : ControllerBase
     {
         private readonly IHotelsRepository _hotelsRepository;
@@ -26,8 +28,8 @@ namespace HotelListing.API.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<IEnumerable<HotelDto>>> GetHotels()
         {
-            var hotels = await _hotelsRepository.GetAllAsync();
-            return Ok(_mapper.Map<List<HotelDto>>(hotels));
+            var hotels = await _hotelsRepository.GetAllAsync<HotelDto>();
+            return Ok(hotels);
         }
 
         // GET: api/Hotels
