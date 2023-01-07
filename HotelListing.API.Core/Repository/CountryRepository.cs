@@ -27,7 +27,7 @@ namespace HotelListing.API.Core.Repository
 
             if (country is null)
                 throw new NotFoundException(nameof(GetDetails), id);
-            
+
             return country;
         }
     }
